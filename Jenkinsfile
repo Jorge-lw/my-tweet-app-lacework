@@ -7,7 +7,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build("$DOCKER_HUB/my-tweet-app-lacework")
+                    app = docker.build("$DOCKER_HUB/my-tweet-app")
                     app.inside {
                         sh 'cat /usr/src/app/app.py'
                     }
@@ -28,7 +28,7 @@ pipeline {
                 sh 'mkdir -p /tmp/lw-scanner/data'
                 sh 'mkdir -p /tmp/lw-scanner/logs'
                 sh './lw-scanner version'
-                sh './lw-scanner evaluate $DOCKER_HUB/my-tweet-app-lacework latest -l /tmp/lw-scanner/logs -d /tmp/lw-scanner/data --debug'
+                sh './lw-scanner evaluate $DOCKER_HUB/my-tweet-app latest -l /tmp/lw-scanner/logs -d /tmp/lw-scanner/data --debug'
                 sh '''
                     echo "Multiline shell steps works too"
                     ls -lah
