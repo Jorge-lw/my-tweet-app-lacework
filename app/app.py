@@ -7,7 +7,7 @@ from flask import Flask, render_template, url_for, request, jsonify
 
 app = Flask(__name__)
 
-app_name = 'Aplicación demo para el Cañas & Devops - Barcelona 1/12/2022'
+app_name = 'Aplicación demo para el Cañas & Devops - Barcelona 1/12/2022 '
 
 print(app_name)
 
